@@ -2,191 +2,185 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#180f2b">
-<title>Birthday Celebration 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#170d28">
+<title>Make a Birthday Wish</title>
 <style>
-  :root { --pink:#ff78ad; --gold:#ffd166; --cream:#fff1dc; --bg:#180f2b; }
-  * { box-sizing:border-box }
-  body {
-    margin:0; min-height:100vh; color:#fff; font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-    background:radial-gradient(circle at 50% 8%,#56336d 0,#28183e 42%,#120d22 100%);
-    overflow-x:hidden; text-align:center;
-  }
-  .wrap { width:min(100% - 28px,620px); margin:auto; padding:26px 0 42px }
-  .eyebrow { color:#ffd166; letter-spacing:3px; font-size:12px; font-weight:800 }
-  h1 { font-family:Georgia,serif; font-size:clamp(34px,9vw,56px); line-height:1.05; margin:12px 0 8px }
-  #wishName { color:#ff9bc2; overflow-wrap:anywhere }
-  .sub { color:#e4d8ed; margin:0 auto 22px; max-width:440px }
-  .panel { background:#ffffff12; border:1px solid #ffffff25; border-radius:22px; padding:17px; backdrop-filter:blur(8px); box-shadow:0 14px 40px #0003 }
-  .controls { display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:left }
-  label { display:block; font-size:12px; color:#eadcf3; margin:0 0 6px; font-weight:700 }
-  input,select { width:100%; min-width:0; border:1px solid #ffffff35; background:#211633; color:white; border-radius:12px; padding:12px; font:inherit; font-size:15px }
-  .wide { grid-column:1/-1 }
-  button { border:0; border-radius:999px; padding:13px 18px; font-weight:800; font-size:15px; cursor:pointer; color:#27152e; background:linear-gradient(135deg,#ffe08a,#ff9fbd); box-shadow:0 7px 20px #0003 }
-  button:active { transform:scale(.98) }
-  .secondary { color:#fff; background:#ffffff18; border:1px solid #ffffff38; box-shadow:none }
-  .cake-area { min-height:330px; display:flex; flex-direction:column; align-items:center; justify-content:end; padding:24px 8px 12px; position:relative }
-  .cake { position:relative; width:min(78vw,310px); height:190px; margin-top:52px; filter:drop-shadow(0 14px 13px #0005) }
-  .tier { position:absolute; left:7%; width:86%; border:3px solid #ffffff55; border-radius:16px 16px 20px 20px; background:var(--cake,#f28aaa); }
-  .tier.bottom { height:105px; bottom:0; background:linear-gradient(#ffb0c8,#e96c9b) }
-  .tier.top { height:76px; width:68%; left:16%; bottom:88px; background:linear-gradient(#ffe0a8,#f5a65d); border-radius:15px 15px 13px 13px }
-  .drip { position:absolute; top:0; left:0; width:100%; height:23px; border-radius:13px 13px 8px 8px; background:#fff0dc; }
-  .tier.top .drip { background:#fff4d9 }
-  .sprinkles { position:absolute; inset:30px 18px 15px; opacity:.8; background:radial-gradient(ellipse at 15% 30%,#fff 0 2px,transparent 3px),radial-gradient(ellipse at 40% 65%,#ffd166 0 2px,transparent 3px),radial-gradient(ellipse at 70% 38%,#fff 0 2px,transparent 3px),radial-gradient(ellipse at 88% 72%,#ff6b9a 0 2px,transparent 3px); background-size:52px 39px }
-  .candle-row { position:absolute; bottom:155px; left:50%; transform:translateX(-50%); display:flex; gap:clamp(4px,2vw,11px); align-items:end; justify-content:center; width:90%; z-index:3 }
-  .candle { width:10px; height:43px; border-radius:4px 4px 2px 2px; position:relative; background:repeating-linear-gradient(135deg,#fff 0 5px,#ff6b9a 5px 10px); border:1px solid #ffffff99 }
-  .wick { position:absolute; width:2px; height:8px; background:#34222b; top:-7px; left:4px }
-  .flame { position:absolute; width:13px; height:20px; left:-2px; top:-26px; border-radius:60% 40% 60% 40%; background:radial-gradient(ellipse at 50% 70%,#fff8b0 0 18%,#ffb52e 42%,#ff6b20 75%); transform:rotate(2deg); animation:flicker .16s infinite alternate; transform-origin:bottom }
-  .out .flame { display:none }
-  @keyframes flicker { from{transform:rotate(-5deg) scale(.94)} to{transform:rotate(5deg) scale(1.08)} }
-  .plate { width:min(88vw,360px); height:23px; border-radius:50%; background:linear-gradient(#fff4df,#d5b7d1); margin-top:-3px; box-shadow:0 9px 0 #9e7ca9 }
-  .status { color:#ffe4a6; min-height:25px; font-size:14px; margin:14px 0 8px }
-  .actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px }
-  .hint { color:#cdbed8; font-size:12px; line-height:1.5; margin:14px auto 0; max-width:470px }
-  .footer { color:#b9a9c8; font-size:11px; margin-top:24px }
-  #confetti { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:10 }
-  .piece { position:absolute; top:-15px; width:8px; height:12px; animation:fall linear forwards }
-  @keyframes fall { to { transform:translateY(110vh) rotate(720deg); opacity:.8 } }
-  @media(max-width:380px){.controls{grid-template-columns:1fr}.wide{grid-column:auto}.cake-area{min-height:300px}}
+:root{--bg:#170d28;--pink:#ff8fb8;--gold:#ffd98a;--cream:#fff0d5}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;text-align:center;background:radial-gradient(ellipse at 50% 12%,#503060 0,#29183d 42%,#10091c 100%);overflow-x:hidden}
+main{width:min(100% - 28px,620px);margin:auto;padding:26px 0 40px}
+.kicker{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:800}
+h1{font:clamp(36px,9vw,58px)/1.04 Georgia,serif;margin:12px 0 8px}
+#wishName{color:#ff9fc4;overflow-wrap:anywhere}
+.sub{color:#e6d8ed;margin:0 auto 22px}
+.panel{padding:17px;border:1px solid #ffffff25;border-radius:22px;background:#ffffff10;box-shadow:0 14px 40px #0003}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left}
+label{display:block;font-size:12px;color:#eadcf3;font-weight:700;margin-bottom:6px}
+input,select{width:100%;min-width:0;border:1px solid #ffffff35;background:#211633;color:#fff;border-radius:12px;padding:12px;font:inherit}
+.wide{grid-column:1/-1}
+button{border:0;border-radius:999px;padding:13px 18px;font-size:15px;font-weight:800;color:#29152e;background:linear-gradient(135deg,#ffe08a,#ff9fbd);box-shadow:0 7px 20px #0003}
+button:active{transform:scale(.98)}
+.secondary{color:#fff;background:#ffffff18;border:1px solid #ffffff38;box-shadow:none}
+button:disabled{opacity:.55}
+.stage{min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:28px 0 12px;position:relative}
+.cake{position:relative;width:min(82vw,330px);height:210px;filter:drop-shadow(0 14px 13px #0005)}
+.tier{position:absolute;border:3px solid #ffffff66}
+.bottom{width:100%;height:116px;bottom:0;left:0;border-radius:20px 20px 25px 25px;background:linear-gradient(#ffb5ce,#e66d9c)}
+.top{width:70%;height:84px;bottom:98px;left:15%;border-radius:17px 17px 13px 13px;background:linear-gradient(#fff0c9,#f4a65e)}
+.icing{position:absolute;top:0;left:0;width:100%;height:23px;border-radius:14px 14px 9px 9px;background:#fff0dc}
+.sprinkles{position:absolute;inset:32px 18px 14px;opacity:.8;background:radial-gradient(ellipse at 15% 30%,#fff 0 2px,transparent 3px),radial-gradient(ellipse at 40% 65%,#ffd166 0 2px,transparent 3px),radial-gradient(ellipse at 70% 38%,#fff 0 2px,transparent 3px),radial-gradient(ellipse at 88% 72%,#ff6b9a 0 2px,transparent 3px);background-size:52px 39px}
+.candle-row{position:absolute;z-index:4;bottom:174px;left:50%;transform:translateX(-50%);width:94%;display:flex;align-items:flex-end;justify-content:center;gap:clamp(3px,1.7vw,9px)}
+.candle{position:relative;width:11px;height:47px;flex:0 1 11px;min-width:6px;border-radius:4px 4px 2px 2px;background:repeating-linear-gradient(135deg,#fff 0 5px,#ff6b9a 5px 10px);border:1px solid #ffffffaa;transform-origin:bottom center;transition:transform .08s}
+.wick{position:absolute;top:-7px;left:calc(50% - 1px);width:2px;height:8px;background:#38252b}
+.flame{position:absolute;width:16px;height:25px;left:50%;top:-30px;margin-left:-8px;border-radius:55% 45% 55% 45%;background:radial-gradient(ellipse at 50% 72%,#fffde0 0 13%,#ffe36e 28%,#ff9e24 62%,#f34c20 88%);box-shadow:0 0 9px 3px #ff9b35aa,0 0 22px 7px #ff9b3555;transform-origin:50% 100%;animation:flicker .14s infinite alternate;transition:opacity .18s,filter .18s}
+.flame:after{content:"";position:absolute;left:5px;top:5px;width:6px;height:14px;border-radius:50%;background:#fff7c9;filter:blur(1px)}
+.candle.blown .flame{opacity:0;filter:blur(5px);animation:none}
+.smoke{position:absolute;left:50%;top:-35px;width:7px;height:7px;border-radius:50%;background:#d8d2d9;opacity:0;filter:blur(2px);transform:translateX(-50%)}
+.candle.blown .smoke{animation:smoke 1.6s ease-out forwards}
+@keyframes flicker{0%{transform:rotate(-3deg) scale(.94,1.02)}100%{transform:rotate(3deg) scale(1.05,.96)}}
+@keyframes smoke{0%{opacity:0;transform:translate(-50%,0) scale(.5)}15%{opacity:.5}100%{opacity:0;transform:translate(calc(-50% + 10px),-42px) scale(3)}}
+.plate{width:min(90vw,380px);height:24px;border-radius:50%;background:linear-gradient(#fff4df,#d5b7d1);margin-top:-2px;box-shadow:0 9px 0 #9e7ca9}
+.wind{height:5px;width:0;position:absolute;left:8%;top:43%;border-radius:50%;background:#c9efff;opacity:0;filter:blur(2px)}
+.wind.active{animation:wind .45s linear infinite}
+@keyframes wind{0%{width:0;opacity:0;transform:translateX(0)}35%{opacity:.55}100%{width:78%;opacity:0;transform:translateX(15px)}}
+.status{min-height:28px;color:#ffe4a6;font-size:14px;margin:12px 0 8px}
+.meter{height:7px;background:#ffffff20;border-radius:10px;overflow:hidden;margin:10px auto 4px;max-width:300px}
+#level{height:100%;width:0;background:linear-gradient(90deg,#8be0cf,#ffd166,#ff7b78);border-radius:10px;transition:width .08s}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.hint{color:#cdbed8;font-size:12px;line-height:1.55;max-width:480px;margin:14px auto 0}
+#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.piece{position:absolute;top:-15px;width:8px;height:12px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.8}}
+.footer{color:#b9a9c8;font-size:11px;margin-top:24px}
+@media(max-width:380px){.fields{grid-template-columns:1fr}.wide{grid-column:auto}.stage{min-height:320px}}
 </style>
 </head>
 <body>
 <div id="confetti"></div>
-<main class="wrap">
-  <div class="eyebrow">A LITTLE MAGIC FOR YOUR SPECIAL DAY</div>
+<main>
+  <div class="kicker">A LITTLE MAGIC FOR YOUR SPECIAL DAY</div>
   <h1>Happy Birthday,<br><span id="wishName">Birthday Star</span>! ✨</h1>
-  <p class="sub">Make a wish, take a deep breath, and blow out the candles. This moment is all yours. 💖</p>
-
+  <p class="sub">Close your eyes, make a wish, then blow gently toward the candles. 💖</p>
   <section class="panel">
-    <div class="controls">
-      <div class="wide">
-        <label for="nameInput">Birthday person's name</label>
-        <input id="nameInput" maxlength="32" value="Birthday Star" placeholder="Enter a name">
-      </div>
-      <div>
-        <label for="countInput">Number of candles (1–20)</label>
-        <input id="countInput" type="number" min="1" max="20" value="5">
-      </div>
-      <div>
-        <label for="designInput">Cake design</label>
-        <select id="designInput">
-          <option value="pink">Pink strawberry</option>
-          <option value="choco">Chocolate dream</option>
-          <option value="blue">Blue velvet</option>
-          <option value="rainbow">Rainbow party</option>
-          <option value="mint">Mint delight</option>
-        </select>
-      </div>
+    <div class="fields">
+      <div class="wide"><label for="nameInput">Birthday person's name</label><input id="nameInput" maxlength="32" value="Birthday Star"></div>
+      <div><label for="countInput">Number of candles (1–20)</label><input id="countInput" type="number" min="1" max="20" value="5"></div>
+      <div><label for="designInput">Cake design</label><select id="designInput"><option value="pink">Pink strawberry</option><option value="choco">Chocolate dream</option><option value="blue">Blue velvet</option><option value="rainbow">Rainbow party</option><option value="mint">Mint delight</option></select></div>
       <div class="wide" style="text-align:center"><button id="updateBtn">✨ Update birthday cake</button></div>
     </div>
   </section>
-
-  <div class="cake-area">
-    <div class="cake" id="cake">
+  <div class="stage">
+    <div class="wind" id="wind"></div>
+    <div class="cake">
       <div class="candle-row" id="candleRow"></div>
-      <div class="tier top"><div class="drip"></div><div class="sprinkles"></div></div>
-      <div class="tier bottom"><div class="drip"></div><div class="sprinkles"></div></div>
+      <div class="tier top"><div class="icing"></div><div class="sprinkles"></div></div>
+      <div class="tier bottom"><div class="icing"></div><div class="sprinkles"></div></div>
     </div>
     <div class="plate"></div>
   </div>
-
-  <div class="status" id="status">Your candles are glowing. Make a wish! 🌟</div>
+  <div class="status" id="status">All candles are glowing. Make a wish! 🌟</div>
+  <div class="meter"><div id="level"></div></div>
   <div class="actions">
-    <button id="micBtn">🎤 Enable mic & blow</button>
-    <button class="secondary" id="tapBtn">💨 Blow (no mic)</button>
-    <button class="secondary" id="relightBtn">🕯️ Relight candles</button>
+    <button id="micBtn">🎤 Start microphone</button>
+    <button class="secondary" id="tapBtn">💨 Blow out all</button>
+    <button class="secondary" id="relightBtn">🕯️ Relight</button>
   </div>
-  <p class="hint">For microphone blowing, tap “Enable mic & blow” and allow microphone access. Then blow toward your phone's microphone. If mic access is unavailable, use the “Blow (no mic)” button. Microphone audio is processed in this page and is not recorded or uploaded.</p>
+  <p class="hint">Microphone mode: allow access, wait for the 1-second sound check, then blow toward your phone's microphone. A gentle/short blow bends the flames; a stronger or longer blow puts out more candles. Mic access needs an HTTPS website (GitHub Pages works). Audio is analysed on your device and is not recorded or uploaded.</p>
   <div class="footer">Made with love, wishes & a little frosting 🎂</div>
 </main>
 <script>
-const $ = id => document.getElementById(id);
-let micStream = null, audioContext = null, analyser = null, micActive = false;
-let loudSince = 0, cooldown = false;
-const designs = {
-  pink: ['#f28aaa','#ffb0c8'], choco: ['#8b573e','#b97a50'],
-  blue: ['#67b9df','#9bdcf2'], rainbow: ['#b98be8','#f3a5cf'],
-  mint: ['#70c9ad','#a5e5ce']
-};
-function updateCake() {
-  const name = $('nameInput').value.trim() || 'Birthday Star';
-  $('wishName').textContent = name;
-  let count = Math.max(1, Math.min(20, parseInt($('countInput').value,10) || 1));
-  $('countInput').value = count;
-  const design = $('designInput').value;
-  const [base, top] = designs[design];
-  document.querySelector('.tier.bottom').style.background = `linear-gradient(${top},${base})`;
-  document.querySelector('.tier.top').style.background = `linear-gradient(#fff0c9,${design==='choco'?'#b97a50':base})`;
-  const row = $('candleRow'); row.innerHTML = '';
-  for(let i=0;i<count;i++){
-    const candle = document.createElement('div'); candle.className='candle';
-    candle.innerHTML='<span class="wick"></span><span class="flame"></span>';
-    if(count>13) candle.style.transform='scale(.8)';
-    row.appendChild(candle);
-  }
-  $('status').textContent = 'Your candles are glowing. Make a wish! 🌟';
+const $=id=>document.getElementById(id);
+let stream=null,ctx=null,analyser=null,source=null,raf=0,active=false,calibrating=false;
+let noiseFloor=.012,blowEnergy=0,lastBlow=0,blownCount=0,blowStart=0,blowStrength=0;
+const designs={pink:['#ffb5ce','#e66d9c'],choco:['#bd8a68','#71402e'],blue:['#a5e5f2','#4a9bc7'],rainbow:['#e4a4d0','#9e75cf'],mint:['#b5ead4','#55b99c']};
+function updateCake(){
+  $('wishName').textContent=$('nameInput').value.trim()||'Birthday Star';
+  const count=Math.max(1,Math.min(20,parseInt($('countInput').value,10)||1));$('countInput').value=count;
+  const [top,bottom]=designs[$('designInput').value];
+  document.querySelector('.bottom').style.background=`linear-gradient(${top},${bottom})`;
+  document.querySelector('.top').style.background=`linear-gradient(#fff0c9,${top})`;
+  const row=$('candleRow');row.innerHTML='';
+  for(let i=0;i<count;i++){const c=document.createElement('div');c.className='candle';c.innerHTML='<span class="wick"></span><span class="flame"></span><span class="smoke"></span>';row.appendChild(c)}
+  blownCount=0;$('level').style.width='0%';$('status').textContent='All candles are glowing. Make a wish! 🌟';
 }
-function celebrate() {
-  document.querySelectorAll('.candle').forEach(c=>c.classList.add('out'));
-  $('status').textContent = '🎉 You did it! Happy Birthday! May your wish come true! 💖';
-  confetti();
+function putOutOne(){
+  const candles=[...document.querySelectorAll('.candle:not(.blown)')];
+  if(!candles.length)return;
+  candles[candles.length-1].classList.add('blown');blownCount++;
+  if(blownCount>=document.querySelectorAll('.candle').length){finish();return}
 }
-function confetti() {
-  const holder=$('confetti'); holder.innerHTML='';
-  const colors=['#ff78ad','#ffd166','#8be0cf','#a78bfa','#ffffff'];
-  for(let i=0;i<90;i++){
-    const p=document.createElement('i'); p.className='piece';
-    p.style.left=Math.random()*100+'vw'; p.style.background=colors[i%colors.length];
-    p.style.animationDuration=(2+Math.random()*2.5)+'s';
-    p.style.animationDelay=Math.random()*.8+'s'; p.style.transform=`rotate(${Math.random()*360}deg)`;
-    holder.appendChild(p);
-  }
-  setTimeout(()=>holder.innerHTML='',5000);
+function finish(){
+  stopMic();$('status').textContent='🎉 Every candle is out! Happy Birthday! May your wish come true! 💖';celebrate();
 }
-$('updateBtn').addEventListener('click',updateCake);
-$('tapBtn').addEventListener('click',celebrate);
-$('relightBtn').addEventListener('click',()=>{document.querySelectorAll('.candle').forEach(c=>c.classList.remove('out'));$('status').textContent='Candles relit! Make another wish. 🕯️';});
-$('micBtn').addEventListener('click',async()=>{
-  if(micActive){ stopMic(); return; }
-  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-    $('status').textContent='Microphone needs a supported secure browser page. Try the no-mic button.';
-    return;
-  }
-  try {
-    micStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
-    audioContext=new (window.AudioContext||window.webkitAudioContext)();
-    const source=audioContext.createMediaStreamSource(micStream);
-    analyser=audioContext.createAnalyser(); analyser.fftSize=1024; source.connect(analyser);
-    micActive=true; $('micBtn').textContent='⏹ Stop microphone';
-    $('status').textContent='Listening… blow toward your phone microphone! 💨';
-    monitorMic();
-  } catch(e) {
-    $('status').textContent='Mic permission was blocked or unavailable. Allow it in browser settings, or use the no-mic button.';
-  }
-});
-function monitorMic(){
-  if(!micActive) return;
-  const data=new Uint8Array(analyser.fftSize);
-  analyser.getByteTimeDomainData(data);
-  let sum=0; for(let i=0;i<data.length;i++){const v=(data[i]-128)/128;sum+=v*v;}
-  const rms=Math.sqrt(sum/data.length);
-  if(rms>0.20){
-    if(!loudSince) loudSince=Date.now();
-    if(Date.now()-loudSince>350 && !cooldown){
-      cooldown=true; celebrate(); stopMic(); return;
-    }
-  } else loudSince=0;
-  requestAnimationFrame(monitorMic);
+function celebrate(){
+ const holder=$('confetti');holder.innerHTML='';const colors=['#ff78ad','#ffd166','#8be0cf','#a78bfa','#fff'];
+ for(let i=0;i<100;i++){const p=document.createElement('i');p.className='piece';p.style.left=Math.random()*100+'vw';p.style.background=colors[i%colors.length];p.style.animationDuration=(2+Math.random()*2.5)+'s';p.style.animationDelay=Math.random()*.6+'s';holder.appendChild(p)}
+ setTimeout(()=>holder.innerHTML='',5000);
 }
 function stopMic(){
-  micActive=false; loudSince=0;
-  if(micStream) micStream.getTracks().forEach(t=>t.stop());
-  if(audioContext) audioContext.close();
-  micStream=null; audioContext=null; analyser=null;
-  $('micBtn').textContent='🎤 Enable mic & blow';
+ active=false;cancelAnimationFrame(raf);
+ if(stream)stream.getTracks().forEach(t=>t.stop());
+ if(ctx)ctx.close().catch(()=>{});
+ stream=null;ctx=null;analyser=null;source=null;
+ $('micBtn').textContent='🎤 Start microphone';$('wind').classList.remove('active');
 }
+$('updateBtn').onclick=()=>{stopMic();updateCake()};
+$('tapBtn').onclick=()=>{document.querySelectorAll('.candle:not(.blown)').forEach(c=>c.classList.add('blown'));blownCount=document.querySelectorAll('.candle').length;finish()};
+$('relightBtn').onclick=()=>{stopMic();document.querySelectorAll('.candle').forEach(c=>c.classList.remove('blown'));blownCount=0;$('level').style.width='0%';$('status').textContent='Candles relit! Make another wish. 🕯️'};
+$('micBtn').onclick=async()=>{
+ if(active){stopMic();$('status').textContent='Microphone stopped.';return}
+ if(!navigator.mediaDevices?.getUserMedia){$('status').textContent='This page needs HTTPS for microphone access. Open the GitHub Pages website, not the downloaded file.';return}
+ try{
+  stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+  ctx=new (window.AudioContext||window.webkitAudioContext)();await ctx.resume();
+  analyser=ctx.createAnalyser();analyser.fftSize=2048;analyser.smoothingTimeConstant=.18;
+  source=ctx.createMediaStreamSource(stream);source.connect(analyser);
+  active=true;calibrating=true;noiseFloor=.008;let calibrationSamples=0,calibrationSum=0;
+  $('micBtn').textContent='⏹ Stop microphone';$('status').textContent='Sound check… stay quiet for a moment';
+  const data=new Uint8Array(analyser.fftSize);
+  const loop=()=>{
+   if(!active)return;
+   analyser.getByteTimeDomainData(data);let sum=0;
+   for(let i=0;i<data.length;i++){const v=(data[i]-128)/128;sum+=v*v}
+   const rms=Math.sqrt(sum/data.length);
+   if(calibrating){
+    calibrationSum+=rms;calibrationSamples++;
+    if(calibrationSamples>=18){noiseFloor=calibrationSum/calibrationSamples;calibrating=false;$('status').textContent='Ready! Blow toward your microphone 💨'}
+    raf=requestAnimationFrame(loop);return;
+   }
+   const threshold=Math.max(.035,noiseFloor*2.8);
+   const strength=Math.max(0,Math.min(1,(rms-threshold)/.28));
+   const blowing=rms>threshold;
+   $('level').style.width=Math.round(strength*100)+'%';
+   const flames=[...document.querySelectorAll('.candle:not(.blown) .flame')];
+   flames.forEach((f,i)=>{const lean=18*strength;f.style.transform=`rotate(${lean}deg) scale(${1+strength*.25},${1-strength*.28})`;f.style.filter=`brightness(${1-strength*.35}) blur(${strength*1.2}px)`});
+   document.querySelectorAll('.candle:not(.blown)').forEach(c=>{c.style.transform=`rotate(${strength*10}deg)`});
+   $('wind').classList.toggle('active',blowing&&strength>.15);
+   if(blowing){
+    if(!blowStart)blowStart=performance.now();
+    blowStrength=Math.max(blowStrength,strength);
+    const now=performance.now();
+    // Accumulate force over time. Short/soft breaths move flames; sustained stronger breaths extinguish candles.
+    blowEnergy+=Math.max(0,strength-.08)*.9;
+    if(blowEnergy>1.05&&now-lastBlow>220){
+      putOutOne();blowEnergy-=1.05;lastBlow=now;
+      if(!active)return;
+      $('status').textContent=`A candle went out! Keep blowing… ${blownCount} of ${document.querySelectorAll('.candle').length}`;
+    }
+   }else{
+    if(blowStart&&performance.now()-blowStart>180){blowEnergy=Math.max(0,blowEnergy-.22)}
+    blowStart=0;blowStrength=0;
+    document.querySelectorAll('.candle:not(.blown)').forEach(c=>{c.style.transform='';const f=c.querySelector('.flame');f.style.transform='';f.style.filter=''});
+    $('wind').classList.remove('active');
+   }
+   raf=requestAnimationFrame(loop);
+  };
+  loop();
+ }catch(err){
+  stopMic();$('status').textContent='Microphone permission denied or unavailable. Allow microphone for this website in Chrome site settings, then reload.';
+ }
+};
 updateCake();
 </script>
-</body>
-</html>
+</body></html>
